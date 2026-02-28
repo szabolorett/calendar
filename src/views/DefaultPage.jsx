@@ -28,6 +28,7 @@ function DefaultPage() {
     localStorage.setItem("filterTextinStorage", filterText);
   }, [filterText]);
 
+  // sort the events in alphabetical order
   const sortedEvents = events.toSorted((a,b) =>
   a.date.localeCompare(b.date, "en", {sensitivity: "base"})
 );

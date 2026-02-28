@@ -1,11 +1,37 @@
-export default function EventItem({event}) {
+import { Link } from "react-router-dom";
+
+export default function EventItem({event, deleteHandler}) {
 const today = new Date().toISOString().split("T")[0];
 
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.toLocaleString("en-GB", { month: "long" });
+    const year = date.getFullYear();
+    const suffix = (day) => {
+        if (day > 3 && day < 21) return "th";
+        switch (day % 10) {
+            case 1: return "st";
+            case 2: return "nd";
+            case 3: return "rd";
+            default: return "th";
+        }
+    };
+    return `${day}, ${month} ${day}${suffix(day)}, ${year}`;
+}
+
     return (
-        <section>
-            <h3>{event.date === today ? "TODAY: " : event.date > today ? "Upcoming: " : "Historic: "}{event.title}</h3>
-            <p>{event.date}</p>
+        <div className="event-item">
+            <h3>
+                {event.date === today ? "TODAY: " : event.date > today ? "Upcoming: " : "Historic: "}
+                {event.title}
+            </h3>
+            <p className="event-date">{formatDate(event.date)}</p>
             <p>{event.description}</p>
-        </section>
-    )
+            <div className="event-actions">
+                <Link to={`/update/${event.id}`}>Update event</Link>
+            </div>
+            <button onClick={() => deleteHandler(event.id)}>Delete event</button>
+        </div>
+    );
 }

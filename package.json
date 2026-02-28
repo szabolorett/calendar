@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "calendar",
   "private": true,
   "home": "https://szabolorett.github.io/calendar",
