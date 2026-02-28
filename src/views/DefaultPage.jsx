@@ -10,7 +10,8 @@ const events = [
   {id: 1, title: "Meeting", date: "2026-04-22", description: "About party in Aarhus"},
   {id: 2, title: "Workshop", date: "2026-04-02", description: "Designing a new app"},
   {id: 3, title: "DIY", date: "2026-02-18", description: "Trying out colorful pottery"},
-  {id: 4, title: "Color palette", date: "2026-02-13", description: "Learning about colors"}
+  {id: 4, title: "Color palette", date: "2026-02-13", description: "Learning about colors"},
+  {id: 5, title: "Gardening", date: "2026-03-01", description: "Planting new flowers"}
   ];
 
 function DefaultPage() {

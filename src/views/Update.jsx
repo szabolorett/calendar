@@ -1,5 +1,5 @@
-import { useState, useEffect, use } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export default function Update() {
   const { id } = useParams();
